@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      <i>Latest News</i>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+        <ion-item>
+          <ion-label fixed>Channel</ion-label>
+          <ion-select (ionChange)="changeCategory()" [(ngModel)]="category" name="category">
+            
+            
+            <ion-option *ngFor="let lim of limit" value="{{lim.id}}"> {{lim.id}} </ion-option>
+            
+
+          </ion-select>
+        </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item *ngFor="let item of items">
+      <ion-thumbnail *ngIf="item.urlToImage" item-left>
+         
+        <img src="{{item.urlToImage}}">
+     </ion-thumbnail>
+     
+     <a href="{{item.url}}"><h2>{{item.title}}</h2></a>
+     <h2></h2>
+      </ion-item>
+    </ion-list>
+
+  
+ 
+</ion-content>
